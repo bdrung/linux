@@ -1231,6 +1231,20 @@ static int s2mps11_wdt_enable(struct sec_pmic_dev *iodev)
 	return 0;
 }
 
+/* USB3.0 Hub Power OFF(GL3512) : BUCK9 */
+static void s2mps11_buck9_reset(struct sec_pmic_dev *iodev)
+{
+	if(regmap_update_bits(iodev->regmap_pmic,
+		S2MPS11_REG_B9CTRL1, 0xC0, 0))
+		pr_err("%s : S2MPS11_REG_B9CTRL1 Error!!\n", __func__);
+
+	mdelay(10);
+
+	if (regmap_update_bits(iodev->regmap_pmic,
+		S2MPS11_REG_B9CTRL1, 0xC0, 0xC0))
+		pr_err("%s : S2MPS11_REG_B9CTRL1 Error!!\n", __func__);
+}
+
 static int s2mps11_pmic_probe(struct platform_device *pdev)
 {
 	struct sec_pmic_dev *iodev = dev_get_drvdata(pdev->dev.parent);
@@ -1357,6 +1371,9 @@ common_reg:
 
 out:
 	kfree(rdata);
+
+	/* for USB 3.0 Hub(GL3512) reset */
+	s2mps11_buck9_reset(iodev);
 
 	/* for Exterenal Watchdog board enable */
 	if (external_watchdog)
