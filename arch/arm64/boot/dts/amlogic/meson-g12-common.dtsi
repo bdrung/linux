@@ -1517,6 +1517,7 @@
 					interrupts = <GIC_SPI 148 IRQ_TYPE_EDGE_RISING>;
 					clocks = <&clkc_audio AUD_CLKID_TODDR_A>;
 					resets = <&arb AXG_ARB_TODDR_A>;
+					amlogic,fifo-depth = <512>;
 					status = "disabled";
 				};
 
@@ -1529,6 +1530,7 @@
 					interrupts = <GIC_SPI 149 IRQ_TYPE_EDGE_RISING>;
 					clocks = <&clkc_audio AUD_CLKID_TODDR_B>;
 					resets = <&arb AXG_ARB_TODDR_B>;
+					amlogic,fifo-depth = <256>;
 					status = "disabled";
 				};
 
@@ -1541,6 +1543,7 @@
 					interrupts = <GIC_SPI 150 IRQ_TYPE_EDGE_RISING>;
 					clocks = <&clkc_audio AUD_CLKID_TODDR_C>;
 					resets = <&arb AXG_ARB_TODDR_C>;
+					amlogic,fifo-depth = <256>;
 					status = "disabled";
 				};
 
@@ -1553,6 +1556,7 @@
 					interrupts = <GIC_SPI 152 IRQ_TYPE_EDGE_RISING>;
 					clocks = <&clkc_audio AUD_CLKID_FRDDR_A>;
 					resets = <&arb AXG_ARB_FRDDR_A>;
+					amlogic,fifo-depth = <512>;
 					status = "disabled";
 				};
 
@@ -1565,6 +1569,7 @@
 					interrupts = <GIC_SPI 153 IRQ_TYPE_EDGE_RISING>;
 					clocks = <&clkc_audio AUD_CLKID_FRDDR_B>;
 					resets = <&arb AXG_ARB_FRDDR_B>;
+					amlogic,fifo-depth = <256>;
 					status = "disabled";
 				};
 
@@ -1577,6 +1582,7 @@
 					interrupts = <GIC_SPI 154 IRQ_TYPE_EDGE_RISING>;
 					clocks = <&clkc_audio AUD_CLKID_FRDDR_C>;
 					resets = <&arb AXG_ARB_FRDDR_C>;
+					amlogic,fifo-depth = <256>;
 					status = "disabled";
 				};
 
